@@ -23,6 +23,7 @@ import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
+// Declaração das Variáveis
     Button btnVermelho;
     Button btnAzul;
     Button btnAmarelo;
@@ -42,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
     int delayVerificador = 5000;
     int pontuacao = 0;
     Preferencia pref ;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
         bootStrap();
     }
 
-    //declarando componentes
+    // Declaração dos Componentes
     protected void bootStrap()
     {
         btnVermelho = findViewById(R.id.btnVermelho);
@@ -63,17 +65,21 @@ public class MainActivity extends AppCompatActivity {
         pref.salvarDados("0");
     }//bootStrap()
 
+    // Lógica por trás do botão de NOVO JOGO
+    // Assim que clica no botão de NOVO JOGO ele é desabilitado
     public void btnNewGameClick (View v)
     {
         loop();
         btnNovoJogo.setEnabled(false);
-    }//btnNewGameClick (View v)
+    } //btnNewGameClick (View v)
 
+    // Lógica por trás do botão de CONTINUAR
+    // Assim que clica no botão de CONTINUAR ele é desabilitado
     public void BtnContinuarJogo(View v)
     {
         loop();
         btnContinuar.setEnabled(false);
-    }//BtnContinuarJogo(View v)
+    } //BtnContinuarJogo(View v)
 
     public void loop()
     {
@@ -103,7 +109,7 @@ public class MainActivity extends AppCompatActivity {
             Verficador();
             }},delayVerificador);
         delayVerificador+=3000;
-    }//loop()
+    } //loop()
 
     public void Verficador()
     {
@@ -148,9 +154,7 @@ public class MainActivity extends AppCompatActivity {
             }
             pontuacao=0;
         }
-    }// Verficador()
-
-
+    } // Verficador()
 
     public void original()
     {
@@ -164,7 +168,7 @@ public class MainActivity extends AppCompatActivity {
             }
         },delay*1000);
         delay++;
-    }//original()
+    } //original()
 
     public void repeatColor()
     {
@@ -220,11 +224,16 @@ public class MainActivity extends AppCompatActivity {
             },delay*1000);
             delay++;
         }
-    }//repeatColor()
+    } //repeatColor()
 
+    // "Ascende" os botões respectivos do número randômico gerado
+    // Se o número for menor que 25 o botão VERMELHO ascende os outros ficam com a cor original
+    // Se o número for maior que 25 e menor que 50 o botão AZUL ascende os outros ficam com a cor original
+    // Se o número for maior que 50 e menor que 75 o botão AMARELO ascende os outros ficam com a cor original
+    // Se o número for maior que 75 e menor que 100 o botão VERDE ascende os outros ficam com a cor original
     public void defineColor()
     {
-
+        // Gera um número randômico entre 1 a 100
         Random random = new Random();
         numRandom = random.nextInt(100);
 
@@ -286,30 +295,30 @@ public class MainActivity extends AppCompatActivity {
             delay++;
         }
 
-    }//defineColor()
+    } //defineColor()
 
     public void btnVermelho(View v)
     {
         vetorVerifica[j] = 1;
         j++;
-    }//btnVermelho(View v)
+    } //btnVermelho(View v)
 
     public void btnAzul(View v)
     {
         vetorVerifica[j] = 2;
         j++;
-    }//btnAzul(View v)
+    } //btnAzul(View v)
 
     public void btnAmarelo(View v)
     {
         vetorVerifica[j] = 3;
         j++;
-    }//btnAmarelo(View v)
+    } //btnAmarelo(View v)
 
     public void btnVerde(View v)
     {
         vetorVerifica[j] = 4;
         j++;
-    }//btnVerde(View v)
+    } //btnVerde(View v)
 
 }
