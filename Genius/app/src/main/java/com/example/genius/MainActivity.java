@@ -71,6 +71,10 @@ public class MainActivity extends AppCompatActivity {
     {
         loop();
         btnNovoJogo.setEnabled(false);
+        btnVermelho.setEnabled(true);
+        btnAzul.setEnabled(true);
+        btnAmarelo.setEnabled(true);
+        btnVerde.setEnabled(true);
     } //btnNewGameClick (View v)
 
     // Lógica por trás do botão de CONTINUAR
@@ -83,7 +87,6 @@ public class MainActivity extends AppCompatActivity {
 
     public void loop()
     {
-
         for(rodada=0; rodada <= limite; rodada++)
         {
 
@@ -108,12 +111,11 @@ public class MainActivity extends AppCompatActivity {
             public void run() {
             Verficador();
             }},delayVerificador);
-        delayVerificador+=3000;
+        delayVerificador+=2000;
     } //loop()
 
     public void Verficador()
     {
-
         for(int i=0; i<=limite; i++)
         {
             if(vetorVerifica[i]==vetor[i])
@@ -137,9 +139,15 @@ public class MainActivity extends AppCompatActivity {
         }
         else
         {
-            Toast.makeText(this,"Fim de Jogo!",Toast.LENGTH_LONG).show();
+            Toast.makeText(this,"Fim de jogo... \uD83D\uDE41",Toast.LENGTH_LONG).show();
             btnContinuar.setEnabled(false);
             btnNovoJogo.setEnabled(true);
+
+            btnVermelho.setEnabled(false);
+            btnAzul.setEnabled(false);
+            btnAmarelo.setEnabled(false);
+            btnVerde.setEnabled(false);
+
             delayVerificador = 5000;
             for(int i=0; i<=limite; i++)
             {
@@ -177,7 +185,7 @@ public class MainActivity extends AppCompatActivity {
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    btnVermelho.setBackgroundColor(Color.RED);
+                    btnVermelho.setBackgroundColor(Color.rgb(238, 190, 197));
                     btnAzul.setBackgroundColor(Color.rgb(43,103,175));
                     btnAmarelo.setBackgroundColor(Color.rgb(251,187,103));
                     btnVerde.setBackgroundColor(Color.rgb(104,189,79));
@@ -191,7 +199,7 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void run() {
                     btnVermelho.setBackgroundColor(Color.rgb(199,34,62));
-                    btnAzul.setBackgroundColor(Color.BLUE);
+                    btnAzul.setBackgroundColor(Color.rgb(171, 201, 237));
                     btnAmarelo.setBackgroundColor(Color.rgb(251,187,103));
                     btnVerde.setBackgroundColor(Color.rgb(104,189,79));
                 }
@@ -205,7 +213,7 @@ public class MainActivity extends AppCompatActivity {
                 public void run() {
                     btnVermelho.setBackgroundColor(Color.rgb(199,34,62));
                     btnAzul.setBackgroundColor(Color.rgb(43,103,175));
-                    btnAmarelo.setBackgroundColor(Color.YELLOW);
+                    btnAmarelo.setBackgroundColor(Color.rgb(255,255,224));
                     btnVerde.setBackgroundColor(Color.rgb(104,189,79));
                 }
             },delay*1000);
@@ -219,7 +227,7 @@ public class MainActivity extends AppCompatActivity {
                     btnVermelho.setBackgroundColor(Color.rgb(199,34,62));
                     btnAzul.setBackgroundColor(Color.rgb(43,103,175));
                     btnAmarelo.setBackgroundColor(Color.rgb(251,187,103));
-                    btnVerde.setBackgroundColor(Color.GREEN);
+                    btnVerde.setBackgroundColor(Color.rgb(195, 233, 222));
                 }
             },delay*1000);
             delay++;
@@ -241,7 +249,7 @@ public class MainActivity extends AppCompatActivity {
         {   handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                btnVermelho.setBackgroundColor(Color.RED);
+                btnVermelho.setBackgroundColor(Color.rgb(238, 190, 197));
                 btnAzul.setBackgroundColor(Color.rgb(43,103,175));
                 btnAmarelo.setBackgroundColor(Color.rgb(251,187,103));
                 btnVerde.setBackgroundColor(Color.rgb(104,189,79));
@@ -257,7 +265,7 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void run() {
             btnVermelho.setBackgroundColor(Color.rgb(199,34,62));
-            btnAzul.setBackgroundColor(Color.BLUE);
+            btnAzul.setBackgroundColor(Color.rgb(171, 201, 237));
             btnAmarelo.setBackgroundColor(Color.rgb(251,187,103));
             btnVerde.setBackgroundColor(Color.rgb(104,189,79));
 
@@ -273,7 +281,7 @@ public class MainActivity extends AppCompatActivity {
                 public void run() {
             btnVermelho.setBackgroundColor(Color.rgb(199,34,62));
             btnAzul.setBackgroundColor(Color.rgb(43,103,175));
-            btnAmarelo.setBackgroundColor(Color.YELLOW);
+            btnAmarelo.setBackgroundColor(Color.rgb(255,255,224));
             btnVerde.setBackgroundColor(Color.rgb(104,189,79));
                 }
             },delay*1000);
@@ -288,7 +296,7 @@ public class MainActivity extends AppCompatActivity {
             btnVermelho.setBackgroundColor(Color.rgb(199,34,62));
             btnAzul.setBackgroundColor(Color.rgb(43,103,175));
             btnAmarelo.setBackgroundColor(Color.rgb(251,187,103));
-            btnVerde.setBackgroundColor(Color.GREEN);
+            btnVerde.setBackgroundColor(Color.rgb(195, 233, 222));
                 }
             },delay*1000);
             vetor[rodada]=4;
