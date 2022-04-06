@@ -89,18 +89,12 @@ public class MainActivity extends AppCompatActivity {
     {
         for(rodada=0; rodada <= limite; rodada++)
         {
-
             if(rodada==limite)
-            {
-                defineColor();
-            }
+            { defineColor(); }
             else
-            {
-                repeatColor();
-            }
+            { repeatColor(); }
             original();
             teste += vetor[rodada];
-
         }
         rodada = 0;
         limite++;
@@ -257,8 +251,8 @@ public class MainActivity extends AppCompatActivity {
             },delay*1000);
             vetor[rodada]=1;
             delay++;
-
         }
+
         else if(numRandom>25 && numRandom<50)
         {
             handler.postDelayed(new Runnable() {
